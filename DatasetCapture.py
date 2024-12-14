@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import os
 
-# Schritt 1: Bild von der Webcam aufnehmen und speichern
+# Bild von der Webcam aufnehmen und speichern
 cam = cv2.VideoCapture(0)
 if not cam.isOpened():
     print("Fehler: Webcam nicht gefunden oder kann nicht geöffnet werden.")
@@ -19,7 +19,7 @@ else:
 cam.release()
 cv2.destroyAllWindows()
 
-# Schritt 2: Bild einlesen und in RGB konvertieren
+# Bild einlesen und in RGB konvertieren
 image_bgr = cv2.imread(image_path)
 if image_bgr is None:
     print("Fehler: Konnte das gespeicherte Bild nicht laden.")
@@ -28,14 +28,13 @@ if image_bgr is None:
 # Umwandlung von BGR nach RGB
 image_rgb = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB)
 
-# Schritt 3: Bild auf eine Höhe von 1 Pixel zuschneiden
-# Nehmen wir z.B. die erste Zeile (Zeile 0)
+# Bild auf eine Höhe von 1 Pixel zuschneiden
+# Nehmen wir die erste Zeile (Zeile 0)
 image_1px = image_rgb[0:1, :640]  # Höhe = 1, Breite = 640
 
-# Schritt 4: RGB-Werte für jeden Pixel ausgeben, in ein normales Array umwandeln
+# RGB-Werte für jeden Pixel ausgeben, in ein normales Array umwandeln
 rgb_values = []
 for col_idx, pixel in enumerate(image_1px[0]):  # Nur eine Zeile
-    # Konvertiere np.uint8-Werte zu normalen Python-Integern
     r, g, b = int(pixel[0]), int(pixel[1]), int(pixel[2])
     rgb_values.append((r, g, b))
     print(f"Pixel {col_idx}: R={r}, G={g}, B={b}")
@@ -66,12 +65,7 @@ def write_to_dataset(liste_str, file_name="Dataset"):
         file.write(liste_str + "\n")
         print(f"Daten hinzugefügt: {liste_str}")
 
-
-# Beispielprogramm
 if __name__ == "__main__":
-    # In die Datei schreiben
     write_to_dataset(liste_str)
 
 print("Done!")
-
-
