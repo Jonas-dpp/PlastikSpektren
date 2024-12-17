@@ -2,6 +2,8 @@
 
 This project uses a neural network to classify plastics based on spectral data.
 
+![BF8AA63D-7867-4637-9B05-F2B68402B31B](https://github.com/user-attachments/assets/fc6287a2-d9b6-448c-85f2-2164161da63d) Image by Dall-E
+
 ## Technologies
 
 - Python, TensorFlow, Keras, Pandas
